@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .bakgrunn1 {
+
+            background-image: url('/img/daytime.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+
+        } 
+        .bakgrunn2 {
+
+            background-image: url('/img/nighttime.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+
+        } 
+
+        #outputDiv {
+
+            border-radius: 50%;
+            border: solid black;
+            height: 300px;
+            width: 300px;
+            margin: 5px
+        }
+
+        #lysBryter {
+            border: solid black;
+            height: 100px;
+            width: 100px;
+            margin: 5px;
+            cursor: pointer;
+
+        }
+
+        .gul {
+            background-color: yellow;
+        }
+    </style>
+</head>
+
+<body>
+    
+    <div id="utE" style="border: solid black;height: 700px;width: 1000px;">
+
+        <div id="outputDiv"></div>
+        <img onclick="changedarkoutsideStatus()" id="lysBryter" src="/img/on.jpg">
+
+    </div>
+    <script>
+        let outputDiv = document.getElementById('outputDiv');
+        let utEDiv = document.getElementById('utE');
+
+        let darkoutside = true;
+        var imgElement = document.getElementById('lysBryter')
+        var backgroundElement = document.getElementById('utE')
+        
+
+        backGround();
+        function changedarkoutsideStatus() {
+            darkoutside = !darkoutside;
+            lysPå();
+            
+
+
+
+        }
+
+        function lysPå() {
+            if (darkoutside == true) {
+                outputDiv.style.backgroundColor = 'yellow';
+
+                (imgElement.src.endsWith("/img/off.jpg")); {
+                    imgElement.src = "/img/on.jpg";
+                }
+                backGround2();
+
+
+            } else {
+                outputDiv.style.backgroundColor = '';
+                imgElement.src = "/img/off.jpg";
+                backGround();
+
+            }
+        }
+        function backGround() {
+            backgroundElement.classList.remove('bakgrunn2')
+            backgroundElement.classList.add('bakgrunn1')
+        }
+        function backGround2() {
+            backgroundElement.classList.remove('bakgrunn1')
+            backgroundElement.classList.add('bakgrunn2')
+        }
+    </script>
+
+
+</body>
+
+</html>
